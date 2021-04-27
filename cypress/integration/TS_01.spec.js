@@ -9,7 +9,7 @@ describe("Sign in", function(){
     })
 })
 
-describe("Create a post interact with it", ()=>{
+describe("Create a post and interact with it", ()=>{
     it('should create a new post', () => {
         cy.contains("New Post").click()
         cy.hash().should('include', "#/editor")
