@@ -1,5 +1,5 @@
 
-describe("Login", function(){
+describe("Sign in", function(){
     it('should visit and login', () => {
         cy.visit("https://react-redux.realworld.io")
         cy.get("ul li").eq(1).contains("Sign in").click()
@@ -38,7 +38,9 @@ describe("Create a post interact with it", ()=>{
         cy.wait(500).contains("Favorited Articles").should("be.visible").click()
         cy.get(".ion-heart").eq(0).should("be.visible").click()
     });
+})
 
+describe('Sign out', ()=>{
     it('should sign me out', () => {
         cy.wait(1000).get("li").contains("frontend_io").click()
         cy.contains("Edit Profile Settings").click()
