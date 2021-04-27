@@ -7,7 +7,9 @@ describe("Login", function(){
         cy.get("input[type='password']").type("w74xTNtTvBnyaSM")
         cy.get("button").contains("Sign in").click()
     })
+})
 
+describe("Create a post interact with it", ()=>{
     it('should create a new post', () => {
         cy.contains("New Post").click()
         cy.hash().should('include', "#/editor")
@@ -33,11 +35,12 @@ describe("Login", function(){
         cy.contains("My Articles")
         cy.get(".ion-heart").eq(0).click()
         cy.contains("Favorited Articles").click()
-        cy.wait(500).contains("Favorited Articles").click()
-        cy.get(".ion-heart").eq(0).click()
+        cy.wait(500).contains("Favorited Articles").should("be.visible").click()
+        cy.get(".ion-heart").eq(0).should("be.visible").click()
     });
 
     it('should sign me out', () => {
+        cy.wait(1000).get("li").contains("frontend_io").click()
         cy.contains("Edit Profile Settings").click()
         cy.get("button").contains("Or click here to logout.").scrollIntoView().click()
     });
